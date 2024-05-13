@@ -70,6 +70,18 @@ def main():
                 else:
                     print(f"You notice a {collectable_item} hidden nearby")
 
+        # Boss Fight
+        if "Boss" in rooms[current_room].keys():
+
+            # Difficult Fight
+            if len(inventory) < 3:
+                print(f"You are ill equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
+                break
+
+            # Easy Fight
+            else:
+                print(f"You are fully prepared to take on the {rooms[current_room]['Boss']}, this battle should be easy!")
+                break
 
 clear()
 prompt()
