@@ -1,23 +1,5 @@
 import os
 
-def prompt():
-    """
-    Displays starting menu
-    """
-    print("\t\t\tWelcome to the DnD Text Adventure\n"
-        "Explore the Dungeon, collect items, fight enemies and take on the Dungeon Lord.\n\n"
-        "Actions:\t'move {direction}' (moves you North, East, South or West)\n"
-        "\t\t'get {item}' (collect nearby items)\n"
-        "\t\t'action {action}' (perform a corresponding action)\n\n")
-
-    input("Press any key to continue...")
-
-def clear():
-    """
-    Clears screen
-    """
-    os.system('cls' if os.name == 'nt' else 'clear')
-
 # Dictionary containing all the possible rooms for the game
 # Each room is a key with directions corresponding to adjoining rooms
 rooms = {
@@ -36,19 +18,40 @@ rooms = {
 # List to track inventory items collected by the player
 inventory = []
 
-# Last move result
-msg = ""
-
-# Players current room
-current_room = "Lost Village"
-
 # List of vowels for correct grammar use in game
 vowels = ['a', 'e', 'i', 'o', 'u']
+
+def prompt():
+    """
+    Displays starting menu
+    """
+    print("\t\t\tWelcome to the DnD Text Adventure\n"
+        "Explore the Dungeon, collect items, fight enemies and take on the Dungeon Lord.\n\n"
+        "Actions:\t'move {direction}' (moves you North, East, South or West)\n"
+        "\t\t'get {item}' (collect nearby items)\n"
+        "\t\t'fight {monster}' (fight the monster)\n"
+        "\t\t'flee {monster}' (flee combat to prevous location)\n"
+        "\t\t'use {environment}' (use a terrain feature)\n"
+        "\t\t'exit (Exit the game at any time)\n\n")
+
+    input("Press any key to continue...")
+
+def clear():
+    """
+    Clears screen
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def main():
     """
     Main Gameplay loop
     """
+    # Last move result
+    msg = ""
+
+    # Players current room
+    current_room = "Lost Village"
+
     while True:
         clear()
 
@@ -97,7 +100,7 @@ def main():
             direction = next_action[1].title()
 
         # Moving between rooms
-        if action = "Go":
+        if action == "Move":
             try:
                 current_room = rooms[current_room][direction]
                 msg = f"You move {direction}."
@@ -105,9 +108,9 @@ def main():
                 msg = "There is no clear path that way"
 
         # Performing an action
-        elif action = "Get":
+        elif action == "Get":
             try:
-                if item = rooms[current_room]["Item"]:
+                if item == rooms[current_room]["Item"]:
                     if item not in inventory:
                         inventory.append(rooms[current_room]["Item"])
                         msg = f"You added {item} to your inventory!"
@@ -119,7 +122,7 @@ def main():
                 msg = f"{item} is not located here."
         
         # Exit the game
-        elif action = "Exit":
+        elif action == "Exit":
             break
         
         # Any other invalid input from player
