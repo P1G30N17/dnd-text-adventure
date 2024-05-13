@@ -83,7 +83,53 @@ def main():
                 print(f"You are fully prepared to take on the {rooms[current_room]['Boss']}, this battle should be easy!")
                 break
 
+        # Accepts the players input as an action
+        player_input = input("Perform an action:\n")
+
+        # Splits player action into words
+        next_action = player_input.split(" ")
+
+        # First word becomes the players action
+        action = next_action[0].title()
+        if len(next_action) > 1:
+            item = next_action[1:]
+            item = ' '.join(item).title()
+            direction = next_action[1].title()
+
+        # Moving between rooms
+        if action = "Go":
+            try:
+                current_room = rooms[current_room][direction]
+                msg = f"You move {direction}."
+            except: 
+                msg = "There is no clear path that way"
+
+        # Performing an action
+        elif action = "Get":
+            try:
+                if item = rooms[current_room]["Item"]:
+                    if item not in inventory:
+                        inventory.append(rooms[current_room]["Item"])
+                        msg = f"You added {item} to your inventory!"
+                    else:
+                        msg = f"You already collected the {item} previously."
+                else:
+                    msg = f"{item} is not located here."
+            except:
+                msg = f"{item} is not located here."
+        
+        # Exit the game
+        elif action = "Exit":
+            break
+        
+        # Any other invalid input from player
+        else:
+            msg = "Invalid command."
+
+            
+
 clear()
 prompt()
+main()
 
 
