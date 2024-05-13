@@ -32,3 +32,18 @@ rooms = {
     'Cemetary' : {'South' : 'Forbidden Grotto', 'Item' : 'Wooden Stake'}
     'Whispering Crypt' : {'North' : 'Forbidden Grotto', 'Boss' : 'Vampire'}
 }
+
+# List to track inventory items collected by the player
+inventory = []
+
+# Last move result
+msg = ""
+
+# Players current room
+current_room = "Lost Village"
+
+# List of vowels
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+clear()
+promt()
