@@ -42,8 +42,36 @@ msg = ""
 # Players current room
 current_room = "Lost Village"
 
-# List of vowels
+# List of vowels for correct grammar use in game
 vowels = ['a', 'e', 'i', 'o', 'u']
+
+def main():
+    """
+    Main Gameplay loop
+    """
+    while True:
+        clear()
+
+        # Display player info
+        print(f"You find yourself in the {current_room}\nInventory: {inventory}\n{'-' * 27}")
+
+        # Display msg
+        print(msg)
+
+        # Alerts player to a nearby item in current room
+        if "Item" in rooms[current_room].keys():
+            collectable_item = rooms[current_room]["Item"]
+
+            if collectable_item not in inventory:
+                # Correct grammar for vowel
+                if collectable_item[0] in vowels:
+                    print(f"You notice an {collectable_item} hidden nearby")
+                # Correct grammar for consanant 
+                else:
+                    print(f"You notice a {collectable_item} hidden nearby")
+
 
 clear()
 prompt()
+
+
