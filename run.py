@@ -72,6 +72,12 @@ def main():
                 # Correct grammar for consanant 
                 else:
                     print(f"You notice a {collectable_item} hidden nearby")
+        
+        # Alerts player to an interactable event
+        if "Action" in rooms[current_room].keys():
+            useable_item = rooms[current_room]["Action"]
+            print(f"You notice a {useable_item} nearby")
+                    
 
         # Boss Fight
         if "Boss" in rooms[current_room].keys():
@@ -107,7 +113,7 @@ def main():
             except: 
                 msg = "There is no clear path that way"
 
-        # Performing an action
+        # Getting an item
         elif action == "Get":
             try:
                 if item == rooms[current_room]["Item"]:
@@ -120,6 +126,16 @@ def main():
                     msg = f"{item} is not located here."
             except:
                 msg = f"{item} is not located here."
+
+        # Using an environment feature
+        elif action == "Use":
+            try:
+                if item == rooms[current_room]["Action"]:
+                    msg = f"You successfully used {item}!"
+                else:
+                    msg = f"{item} is not possible."
+            except:
+                msg = f"{item} is not possible."
         
         # Exit the game
         elif action == "Exit":
