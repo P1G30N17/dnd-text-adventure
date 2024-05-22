@@ -104,7 +104,7 @@ def main():
                         inventory.clear()
                         main()
                 elif player_input == "Exit":
-                    break
+                    return(False)
                 else:
                     print("Invalid Input, Please enter 'Yes' to play again or 'Exit' to quit")
 
