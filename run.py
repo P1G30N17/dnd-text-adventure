@@ -8,7 +8,7 @@ rooms = {
     'Flooded Mineshaft' : {'West' : 'Haunted Mine', 'Item' : 'Holy Cross'},
     'Howling Forest' : {'North' : 'Lost Village', 'East' : 'Wolf Den', 'South' : 'Clear Spring'},
     'Wolf Den' : {'West' : 'Howling Forest', 'Item' : 'Faded Bible'},
-    'Clear Spring' : {'North' : 'Howling Forest', 'Action' : 'Heal'},
+    'Clear Spring' : {'North' : 'Howling Forest', 'Action' : 'Crumbling Shrine'},
     'Lumber Yard' : {'East' : 'Forbidden Grotto', 'West' : 'Lost Village'},
     'Forbidden Grotto' : {'North' : 'Cemetary', 'South' : 'Whispering Crypt', 'West' : 'Lumber Yard'},
     'Cemetary' : {'South' : 'Forbidden Grotto', 'Item' : 'Wooden Stake'},
@@ -26,15 +26,13 @@ def prompt():
     Displays starting menu
     """
     print("\t\t\tWelcome to the DnD Text Adventure\n"
-        "Explore the Dungeon, collect items, fight enemies and take on the Dungeon Lord.\n\n"
+        "Explore the Dungeon, you will need to collect all the  hidden items and prepare yourself to face the vampire that  has been terrorising your local village to win.\n\n"
         "Actions:\t'move {direction}' (moves you North, East, South or West)\n"
         "\t\t'get {item}' (collect nearby items)\n"
-        "\t\t'fight {monster}' (fight the monster)\n"
-        "\t\t'flee {monster}' (flee combat to prevous location)\n"
         "\t\t'use {environment}' (use a terrain feature)\n"
         "\t\t'exit (Exit the game at any time)\n\n")
 
-    input("Press any key to continue...")
+    input("Press ENTER to continue...")
 
 def clear():
     """
@@ -56,7 +54,7 @@ def main():
         clear()
 
         # Display player info
-        print(f"You find yourself in the {current_room}\nInventory: {inventory}\n{'-' * 27}")
+        print(f"You find yourself in the {current_room}\nAvailable Paths: {list(rooms[current_room].keys())}\nInventory: {inventory}\n{'-' * 27}")
 
         # Display msg
         print(msg)
@@ -131,7 +129,8 @@ def main():
         elif action == "Use":
             try:
                 if item == rooms[current_room]["Action"]:
-                    msg = f"You successfully used {item}!"
+                    msg = f"The shrine glows with holy light, and  you recieve a blessing of protection from a forgotten deity from a time long lost!"
+                    inventory.append("Blessing of Protection")
                 else:
                     msg = f"{item} is not possible."
             except:
