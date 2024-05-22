@@ -40,6 +40,18 @@ def clear():
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
+def player_help():
+    """
+    Displays help menu
+    """
+    clear()
+    print("Actions:'move {direction}' (moves you North, East, South or West)\n"
+        "\t'get {item}' (collect nearby items)\n"
+        "\t'use {environment}' (use a terrain feature)\n"
+        "\t'exit (Exit the game at any time)\n\n")
+
+    input("Press ENTER to continue...")
+
 def main():
     """
     Main Gameplay loop
@@ -54,7 +66,7 @@ def main():
         clear()
 
         # Display player info
-        print(f"You find yourself in the {current_room}\nAvailable Paths: {list(rooms[current_room].keys())}\nInventory: {inventory}\n{'-' * 27}")
+        print(f"You find yourself in the {current_room}\nAvailable Interactions: {list(rooms[current_room].keys())}\nInventory: {inventory}\n{'-' * 27}")
 
         # Display msg
         print(msg)
@@ -149,6 +161,10 @@ def main():
             except:
                 msg = f"{item} is not possible."
         
+        #Displays help prompt
+        elif action == "Help":
+            player_help()
+        
         # Exit the game
         elif action == "Exit":
             break
@@ -156,8 +172,6 @@ def main():
         # Any other invalid input from player
         else:
             msg = "Invalid command."
-
-            
 
 clear()
 prompt()
