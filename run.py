@@ -84,9 +84,8 @@ def main():
             if len(inventory) < 6:
                 print(f"You are ill equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
                 print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
-                clear()
                 print("GAME OVER\nWould you like to try again\nYes to play again, No to exit")
-                game_over = input("Play Again?").title()
+                game_over = input("Play Again?\n").title()
                 if game_over == "Yes":
                     clear()
                     prompt()
