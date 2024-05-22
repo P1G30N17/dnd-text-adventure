@@ -98,8 +98,8 @@ def main():
                 print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
                 input()
                 clear()
-                print("GAME OVER\nWould you like to try again\n'Yes' to play again, 'Exit' to quit")
-                player_input = input("Play Again?\n").title()
+                print("GAME OVER\nWould you like to try again\n'Yes' to play again, 'Exit' to quit\n")
+                player_input = input().title()
                 if player_input == "Yes":
                         inventory.clear()
                         main()
