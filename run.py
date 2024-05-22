@@ -9,7 +9,7 @@ rooms = {
     'Howling Forest' : {'North' : 'Lost Village', 'East' : 'Wolf Den', 'South' : 'Clear Spring'},
     'Wolf Den' : {'West' : 'Howling Forest', 'Item' : 'Faded Bible'},
     'Clear Spring' : {'North' : 'Howling Forest', 'Action' : 'Crumbling Shrine'},
-    'Lumber Yard' : {'East' : 'Forbidden Grotto', 'West' : 'Lost Village'},
+    'Lumber Yard' : {'East' : 'Forbidden Grotto', 'West' : 'Lost Village', 'Item': 'Enchanted Axe'},
     'Forbidden Grotto' : {'North' : 'Cemetary', 'South' : 'Whispering Crypt', 'West' : 'Lumber Yard', 'Item' : 'Crypt Key'},
     'Cemetary' : {'South' : 'Forbidden Grotto', 'Item' : 'Wooden Stake'},
     'Whispering Crypt' : {'North' : 'Forbidden Grotto', 'Boss' : 'Ancient Vampire'},
@@ -19,7 +19,7 @@ rooms = {
 inventory = []
 
 # List of vowels for correct grammar use in game
-vowels = ['a', 'e', 'i', 'o', 'u']
+vowels = ['A', 'E', 'I', 'O', 'U']
 
 def prompt():
     """
@@ -81,7 +81,7 @@ def main():
         if "Boss" in rooms[current_room].keys():
 
             # Failure
-            if len(inventory) < 5:
+            if len(inventory) < 6:
                 print(f"You are ill equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
                 print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
                 clear()
