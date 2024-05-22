@@ -96,16 +96,17 @@ def main():
             if len(inventory) < 6:
                 print(f"You are ill equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
                 print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
-                print("GAME OVER\nWould you like to try again\nYes to play again, No to exit")
-                game_over = input("Play Again?\n").title()
-                if game_over == "Yes":
-                    clear()
-                    prompt()
-                    main()
-                elif game_over == "No":
+                input()
+                clear()
+                print("GAME OVER\nWould you like to try again\n'Yes' to play again, 'Exit' to quit")
+                player_input = input("Play Again?\n").title()
+                if player_input == "Yes":
+                        inventory.clear()
+                        main()
+                elif player_input == "Exit":
                     break
                 else:
-                    print("Invalid Input, Please enter Yes to play again or No to Exit")
+                    print("Invalid Input, Please enter 'Yes' to play again or 'Exit' to quit")
 
             # Victory
             else:
