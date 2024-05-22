@@ -10,9 +10,9 @@ rooms = {
     'Wolf Den' : {'West' : 'Howling Forest', 'Item' : 'Faded Bible'},
     'Clear Spring' : {'North' : 'Howling Forest', 'Action' : 'Crumbling Shrine'},
     'Lumber Yard' : {'East' : 'Forbidden Grotto', 'West' : 'Lost Village'},
-    'Forbidden Grotto' : {'North' : 'Cemetary', 'South' : 'Whispering Crypt', 'West' : 'Lumber Yard'},
+    'Forbidden Grotto' : {'North' : 'Cemetary', 'South' : 'Whispering Crypt', 'West' : 'Lumber Yard', 'Item' : 'Crypt Key'},
     'Cemetary' : {'South' : 'Forbidden Grotto', 'Item' : 'Wooden Stake'},
-    'Whispering Crypt' : {'North' : 'Forbidden Grotto', 'Boss' : 'Vampire'},
+    'Whispering Crypt' : {'North' : 'Forbidden Grotto', 'Boss' : 'Ancient Vampire'},
 }
 
 # List to track inventory items collected by the player
@@ -80,12 +80,23 @@ def main():
         # Boss Fight
         if "Boss" in rooms[current_room].keys():
 
-            # Difficult Fight
-            if len(inventory) < 3:
+            # Failure
+            if len(inventory) < 5:
                 print(f"You are ill equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
-                break
+                print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
+                clear()
+                print("GAME OVER\nWould you like to try again\nYes to play again, No to exit")
+                game_over = input("Play Again?").title()
+                if game_over == "Yes":
+                    clear()
+                    prompt()
+                    main()
+                elif game_over == "No":
+                    break
+                else:
+                    print("Invalid Input, Please enter Yes to play again or No to Exit")
 
-            # Easy Fight
+            # Victory
             else:
                 print(f"You are fully prepared to take on the {rooms[current_room]['Boss']}, this battle should be easy!")
                 break
@@ -129,8 +140,11 @@ def main():
         elif action == "Use":
             try:
                 if item == rooms[current_room]["Action"]:
-                    msg = f"The shrine glows with holy light, and  you recieve a blessing of protection from a forgotten deity from a time long lost!"
-                    inventory.append("Blessing of Protection")
+                    if "Blessing of Protection" not in inventory:
+                        msg = f"The shrine glows with holy light, and  you recieve a blessing of protection from a forgotten deity from a time long lost!"
+                        inventory.append("Blessing of Protection")
+                    else:
+                        msg = "The shrine's power already radiates through you"
                 else:
                     msg = f"{item} is not possible."
             except:
