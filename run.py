@@ -98,7 +98,7 @@ def main():
                 print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
                 input()
                 clear()
-                print("GAME OVER\nWould you like to try again\n'Yes' to play again, 'Exit' to quit\n")
+                print("GAME OVER\nWould you like to try again?\n'Yes' to play again, 'Exit' to quit\n")
                 player_input = input().title()
                 if player_input == "Yes":
                         inventory.clear()
@@ -111,7 +111,22 @@ def main():
             # Victory
             else:
                 print(f"You are fully prepared to take on the {rooms[current_room]['Boss']}, this battle should be easy!")
-                break
+                input()
+                clear()
+                print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, trying to rip into your neck to bleed you dry!\n"
+                    "Luckily your blessing of Protection repels the Vampire Lord, stunning him in the process!\n"
+                    "You use this chance to your advantage, using all the items you have gathered throughout your quest to thwart the Vampire Lords every attack!\n"
+                    "Finally drained of its vigor the Vampire Lord flees to his coffin, where you are able to finally plunge the Wooden Stake into its undead heart!")
+                print("CONGRATULATIONS! You saved your village from the terror of the Vampire Lord!\nWould you like to play again?\n'Yes' to play again, 'Exit' to quit\n")
+                player_input = input().title()
+                if player_input == "Yes":
+                        inventory.clear()
+                        main()
+                elif player_input == "Exit":
+                    return(False)
+                else:
+                    print("Invalid Input, Please enter 'Yes' to play again or 'Exit' to quit")
+                
 
         # Accepts the players input as an action
         player_input = input("Perform an action:\n")
