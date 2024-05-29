@@ -21,6 +21,7 @@ inventory = []
 # List of vowels for correct grammar use in game
 vowels = ['A', 'E', 'I', 'O', 'U']
 
+
 def prompt():
     """
     Displays starting menu
@@ -34,11 +35,13 @@ def prompt():
 
     input("Press ENTER to continue...")
 
+
 def clear():
     """
     Clears screen
     """
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def player_help():
     """
@@ -51,6 +54,7 @@ def player_help():
         "\t'exit (Exit the game at any time)\n\n")
 
     input("Press ENTER to continue...")
+
 
 def main():
     """
@@ -88,7 +92,6 @@ def main():
             useable_item = rooms[current_room]["Action"]
             print(f"You notice a {useable_item} nearby")
                     
-
         # Boss Fight
         if "Boss" in rooms[current_room].keys():
 
@@ -177,7 +180,7 @@ def main():
             except:
                 msg = f"{item} is not possible."
         
-        #Displays help prompt
+        # Displays help prompt
         elif action == "Help":
             player_help()
         
@@ -189,8 +192,7 @@ def main():
         else:
             msg = "Invalid command."
 
+
 clear()
 prompt()
 main()
-
-
