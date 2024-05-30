@@ -34,7 +34,7 @@ def prompt():
         "\t\t'use {environment}' (use a terrain feature)\n"
         "\t\t'exit (Exit the game at any time)\n\n")
 
-    input("Press ENTER to continue...")
+    input("Press ENTER to continue...\n")
 
 
 def clear():
@@ -54,7 +54,7 @@ def player_help():
         "\t'use {environment}' (use a terrain feature)\n"
         "\t'exit (Exit the game at any time)\n\n")
 
-    input("Press ENTER to continue...")
+    input("Press ENTER to continue...\n")
 
 
 def game_over(player_input):
@@ -114,7 +114,7 @@ def main():
                 input()
                 clear()
                 print("GAME OVER\nWould you like to try again?\n'Yes' to play again, 'Exit' to quit\n")
-                player_input = input().title()
+                player_input = input("\n").title()
                 game_over(player_input)
 
             # Victory
@@ -127,7 +127,7 @@ def main():
                     "You use this chance to your advantage, using all the items you have gathered throughout your quest to thwart the Vampire Lords every attack!\n"
                     "Finally drained of its vigor the Vampire Lord flees to his coffin, where you are able to finally plunge the Wooden Stake into its undead heart!")
                 print("CONGRATULATIONS! You saved your village from the terror of the Vampire Lord!\nWould you like to play again?\n'Yes' to play again, 'Exit' to quit\n")
-                player_input = input().title()
+                player_input = input("\n").title()
                 game_over(player_input)
                 
 
