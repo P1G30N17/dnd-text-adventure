@@ -108,7 +108,7 @@ def main():
 
             # Failure
             if len(inventory) < 6:
-                print(f"You are ill equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
+                print(f"You are not equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
                 print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you,\n"
                     "tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
                 input()
