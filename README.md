@@ -1,160 +1,121 @@
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
 # Classic DnD Text Adventure Game
 
-Classic hangman is a throw back to the old hangman game we used to play as kids. A simple stick man drawing portrays the end result of failure (being hung), and failure being unable to guess the hidden word. The user is given a basic layout and simple on screen keyboard with which to input their chosen letter in an attempt to guess the hidden word and save the stickman from being hung. If the user is struggling their is a hint option that when clicked will reveal helpful information associated with the hidden word in question. My inspiration for this game came from my two sons who love playing old school games like this on our digital white board with me, along with 'I spy' and 'Pictionary', Hangman is a great way for them to improve their vocabulary. As such a majority of the words used in this game are catered towards their academic level, Year 6 and below. 
+This game is a throw back to the classic style text adventure games of old. The basic premise is that you enter a command and the game will execute that command if possible, such as 'move north', moving the player North, or 'get item', allowing the player to collect an item. The overarching story in the game is that the player is a villager from the lost village, a village that is currently being terrorised by the local Vampire Lord residing in the Whispering Crypt. So it is up to the player to explore the surrounding lands and collect all the necessary items and blessing to prepare themselves to be able to deal with the vampire menace. Failing to adequately prepare themselves will lead to their untimely doom and the eventual destruction of their village. 
 
-![Responsive Mockup](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/viewports.png?raw=true)
+![Launch Screen](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/viewports.png?raw=true)
 
 ## User Stories
-- A quick and fun way to test my vocab knowledge.
-- My son loves trying to guess the words without using hints.
-- The design is very basic but works well for the simple task this game sets out to achieve.
+- I love the old school feel to it.
+- The need to type every action gives you a sense of intimacy with the game.
+- Good fun, I had to try a couple of times before finding all the items and beating the boss.
 
 ## Features 
 
-The Hangman game is a simple one page project, where the user is presented with the game upon page load and a game already loaded up for them to play. Whether they are new or a returning user, navigating the game is very easy and fairly intuitive. 
+The text adventure game is a very simple premise. The player inputs available commands and the game with execute those commands if possible. To assist with what commands are available, there is an onscreen prompt showing the user their available interactions and options for movement. The player then needs to explore the various rooms, collecting items along the way and iteracting with terrain features to gain their buff. Once the 'dungeon' is fully explored the user can then take on the games boss, and if they have collected all the necessary items the will win, otherwise the will suffer defeat. 
 
 ### Existing Features
 
 - __The Game__
 
-  - Taking center stage is the game container and within it the hangman game.
-  - The user has everything right in front of them with which to interact and play the game.
+  - The game is interacted with through a terminal window.
+  - The user can give commands to their avatar by typing in the requested command into the terminal.
+  - If the command is valid the avatar will attempt to perform said action.
 
 ![The Game](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/game.png?raw=true)
 
-- __The Hangman Stockade__
+- __Giving Commands__
 
-  - This is the classic hangman stockade associated with almost all iterations of the hangman game.
-  - The stickman will, piece by piece, be drawn onto the stock as if he is being hung.
-  - This acts as a visual queu to the user for the number of attempts left  to guess the word and helps to portray the gravity of the situation. 
+  - The user only needs to type in their required action to perform it.
+  - Typing 'move', 'get', 'use' will allow the user's avatar to perform the corresponding action
+  - Following an action move with the direction, item, or terrain feature will complete the action.
+  - For example, 'get item', 'move north' or 'use terrain feature' will all execute their given task. 
 
-![The Hangman Stockade-1](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/stockade-1.png?raw=true)
-![The Hangman Stockade-2](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/stockade-2.png?raw=true)
+![Using Commands](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/stockade-1.png?raw=true)
 
-- __The word to guess__
+- __The user HUD__
 
-  - Here the user will be offered a word, that they must guess, hidden by underscores until a correct letter is guessed.
-  - Upon the correct choice of letter the underscore will be removed and the afore mentioned correct letter will replace it.
-  - This helps to give a visual queue to the user as to what the word could potentially be.
+  - Within the terminal of the game, the user will always be presented with their current location, available interactions and current inventory.
+  - These user displays will change depending on which room they are in and how many items they have collected.
 
-![The guess word](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/guess-word.png?raw=true)
+![HUD Display](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/guess-word.png?raw=true)
 
-- __Attempts left indicator__ 
+- __Message Bar__ 
 
-- This is a more direct indicator of how many attempts the user has to guess the correct word.
-- This helps to assist new users, or users who have never played hangman before associate the number of attempts left with the parts left on the hangman body in the stockade image.
+- This will display the effects of the users last command
 
-![Attempts left indicator](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/attempts.png?raw=true)
+![Player message](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/attempts.png?raw=true)
 
-- __The hint button and hint text__ 
+- __Victory and Game Over state__
 
-  - The user can click on the hint button to reveal a hint associated with the current hidden word.
-  - The hint button disappears upon click and the hint remains on screen until the user either is succesful or not.
-  - Upon a new game iniating the hint disappears for the old word and the hint button returns linked to the new word hint.
+- Whether the player is able to win or not, they will be displayed with a corresponding end message and then be presented with the game over screen.
+- From here the user can choose to either play again or exit the game by follwing the on screen prompts.
 
-![Hint Button and hint text-1](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/hint-1.png?raw=true)
-![Hint Button and hint text-2](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/hint-2.png?raw=true)
-
-- __The onscreen keyboard__
-
-  - The intention for an onscreen keyboard was to simplify the process across mobile, tablet and desktop.
-  - The user is given the ability to select a letter from an onscreen keyboard representing the english alphabet.
-  - Once a key is clicked, whether it is right or wrong for the hidden word, it is then grey out and unclickable so as to avoid a user using up for than one attempt on a repeated letter.
-
-![The onscreen keyboard](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/keyboard.png?raw=true)
-
-- __Victory and Game Over message__
-
-- Once the user has guessed the correct word within the given attempts limit, they are shown a victory message.
-- Once the user has failed to guess the correct word within the given attempts limit, they are shown a game over message.
-- Both messages offer a 'Play again' and 'Try again' button respectively that will reset the game, choose a new hidden word and hide the hint text (if clicked previously).
-
-![Victory and Game Over message-1](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/victory.png?raw=true)
-![Victory and Game Over message-2](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/game-over.png?raw=true)
+![Victory and Game Over state](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/victory.png?raw=true)
 
 ### Features Left to Implement
 
-- Game Difficulty
-- Score Tracker
+- In game map display
+- Boss room prepared message to alert the player that the boss is ahead
+- Potentially adding a combat simulator (such as random damage from the players avatar to the boss, and vice versa, adjusting for current inventory increasing said damage)
 
 ## Testing 
 
-- This Classic Hangman game project was tested on the following devices: Desktop pc (1920 x 1080), iPad Air (2360 x 1640) and iPhone XR (1792 × 828) along with the Google Chrome inspect tool for responive dimension testing.
-- This Classic Hangman game project was tested on the following web browsers: Google Chrome, Microsoft Edge and Safari.
-
-### Device Testing
-- The project is responsive in almost all dimensions bar a few outliers such as a smart watch.
-- This was achieved in a sense due to the simplicity of the game, the game container scales to almost all device sizes allowing multiple platforms to play the game.
-
-![Responsive Mockup](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/viewports.png?raw=true)
-
-### Web Browser Testing
-
-- The project obtained a great lighthouse rating with the Google Lighthouse Dev Tool.
-
-![Lighthouse Score](https://github.com/P1G30N17/hangman/blob/main/assets/readme-media/lighthouse.png?raw=true)
-
-- The various web browsers the project was tested on had mostly optimal results, with little to no errors between all 3.
-
-### Page Testing
-
-- I have checked that the game loads a new game correctly after each attempt, success or failure included.
-- I have checked that all on screen keyboard buttons return the correct keystroke.
-- I have checked that the hint button reveals the correct word hint linked to its associated word.
+- The text adventure game was continuosly tested throughout its development within the gitpod terminal along with being tested once deployed to Heroku.
+- Numerous commands were entered to test that no errors occured and if incorrect commands were entered by the user that the user was alerted to this rather than the game crashing, or throwing an unknown error message.
+- The text adventure game was tested on the following web browsers: Google Chrome and Microsoft Edge.
+- I have checked that the game loads a new game correctly once prompted to do so.
+- I have checked that the 'help' command presents the user with an informative display of all available commands to them.
 
 ### Bugs
 
-- I had found that on the rare occasion the game will load the same word twice in a row. This was due to the word being selected randomly from a list of words. As the size of the list is increased the probability of this bug occuring will be less but not zero. (This Bug was fixed by adding a tracker to the random word selected and then using an if/else statement to prevent it from being pulled directly after a round was over).
+- There is currently a bug on the Game Over screen that if the user enters something other than the onscreen prompts it displays the correct user input error but then loops back to the boss battle victory or loss text.
 
 ### Validator Testing 
 
-- HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
-- CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
-- Javascript
-  - No errors were found but a few warnings were noted when passing through the official [(JSHint) validator](https://jshint.com/)
-    - These warnings were that "Swal" and "wordList" were undefinied vairables, Swal is the variable for the alerts generated using the Sweet Alerts 2 website (more information in credits) and the wordList is a variable declared in a seperate script that holds the words and hints required for the hangman project.
-    - A third warning was that "showHint" was an unused variable, however it is a function that is called via an onclick button event from the index.html page.
+- Python
+  - A few errors were found and some warnings were noted when passing through the official [(CI Python Linter](https://pep8ci.herokuapp.com/)
+    - These erros were "E203 whitespace before ' ", "E501 line too long", "E128 continuation line under-indented for visual indent " and "E722 do not use bare 'except' "
+    - These warnings were "W291 trailing whitespace ", "W293 blank line contains whitespace " (when trying to fix these messages by removing blank or trailing whitespace it would incur a different warning of "E231 missing whitespace after ' ")
 
 ### Unfixed Bugs
 
-- None that I am aware of. 
+- Game Over screen bug as stated in the bugs section, with incorrect user input causing the wrong display message to be raised. 
 
 ## Deployment
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Main Branch
-  - Once the Main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
+1. **Sign Up/Login to Heroku**
+      - If you haven't already, sign up for a Heroku account at [Heroku's website](https://www.heroku.com/) or log in if you already have an account.
 
-The live link can be found here - https://p1g30n17.github.io/hangman/
+  2. **Create a New App on Heroku**
+       - Once logged in, navigate to your Heroku dashboard and click on the **New** button, then select **Create new app**.
+       - Choose a unique name for your app and select your region.
+
+  3. **Connect GitHub Repository**
+       - After creating your app, go to the **Deploy** tab within your app's dashboard.
+       - Under the **Deployment method** section, select **GitHub** as the deployment method.
+       - Search for your GitHub repository in the **Connect to GitHub** section and click **Connect**.
+
+  4. **Configure Deployment Options**
+       - Once connected, choose the branch you want to deploy (e.g. *main*) and optionally enable automatic deploys for future commits.
+
+  5. **Select Framework**
+      - Since the DnD Text Adventure Game includes both Python and Node.js components, you need to specify the correct buildpacks for deployment. 
+       - Under the *Settings* tab of your Heroku app, navigate to the **Buildpacks** section and add the appropriate buildpacks for Python and Node.js. (Make sure that they are in this correct order, Python above Node.js)
+       - Also, add the following environment variables:
+       - **PORT** set to **8000** to specify the port on which your app will run.
+
+  6. **Deploy Branch**
+       - After configuring the deployment options, manually deploy your application by clicking the **Deploy Branch** button.
+
+  7. **Monitor Deployment Progress**
+       - Heroku will start deploying your application from the selected GitHub branch. You can monitor the deployment progress from the activity log on the same page.
+
+  8. **View Application**
+      - Once the deployment is complete, Heroku will provide you with a URL to access your deployed application. Click on **View** button to open your application in a new tab.
 
 ## Credits 
 
 ### Code
 
-- Coding assisstance and reference taken from the Love Maths Tutorial project from Code Institute.
-- Coding assisstance and reference taken from the Hangman project and Rock, Paper, Scissors project from https://www.codingnepalweb.com/
-
-### Media 
-
-- Hangman Stock and body drawn by page owner (James King) in MS Paint.
-
-### Content 
-
-- The favicon was generated using https://favicon.io/
-- The victory and game over alerts were generated using https://sweetalert2.github.io/
+- Coding assisstance and reference taken from the Love Sandwiches Tutorial project from Code Institute.
+- Coding assisstance and explanations taken from [Python Tutor](https://pythontutor.com/)
