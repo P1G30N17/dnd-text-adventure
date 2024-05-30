@@ -27,7 +27,8 @@ def prompt():
     Displays starting menu
     """
     print("\t\t\tWelcome to the DnD Text Adventure\n"
-        "Explore the Dungeon, you will need to collect all the  hidden items and prepare yourself to face the vampire that  has been terrorising your local village to win.\n\n"
+        "Explore the Dungeon, collect all the  hidden items and a blessing\n"
+        "Finally face the Vampire that has been terrorising your local village to win.\n\n"
         "Actions:\t'move {direction}' (moves you North, East, South or West)\n"
         "\t\t'get {item}' (collect nearby items)\n"
         "\t\t'use {environment}' (use a terrain feature)\n"
@@ -54,6 +55,16 @@ def player_help():
         "\t'exit (Exit the game at any time)\n\n")
 
     input("Press ENTER to continue...")
+
+
+def game_over(player_input):
+    if player_input == "Yes":
+        inventory.clear()
+        main()
+    elif player_input == "Exit":
+        exit()
+    else:
+        print("Invalid Input, Please enter 'Yes' to play again or 'Exit' to quit")
 
 
 def main():
@@ -98,18 +109,13 @@ def main():
             # Failure
             if len(inventory) < 6:
                 print(f"You are ill equipped to fight the {rooms[current_room]['Boss']}, prepare for a tough battle!")
-                print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you, tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
+                print("The Ancient Vampire, rises from its crypt, only to instantly appear behind you,\n"
+                    "tearing into your neck with its razor sharp fangs and draining you of your precious lifeblood!")
                 input()
                 clear()
                 print("GAME OVER\nWould you like to try again?\n'Yes' to play again, 'Exit' to quit\n")
                 player_input = input().title()
-                if player_input == "Yes":
-                        inventory.clear()
-                        main()
-                elif player_input == "Exit":
-                    exit()
-                else:
-                    print("Invalid Input, Please enter 'Yes' to play again or 'Exit' to quit")
+                game_over(player_input)
 
             # Victory
             else:
@@ -122,13 +128,7 @@ def main():
                     "Finally drained of its vigor the Vampire Lord flees to his coffin, where you are able to finally plunge the Wooden Stake into its undead heart!")
                 print("CONGRATULATIONS! You saved your village from the terror of the Vampire Lord!\nWould you like to play again?\n'Yes' to play again, 'Exit' to quit\n")
                 player_input = input().title()
-                if player_input == "Yes":
-                        inventory.clear()
-                        main()
-                elif player_input == "Exit":
-                    exit()
-                else:
-                    print("Invalid Input, Please enter 'Yes' to play again or 'Exit' to quit")
+                game_over(player_input)
                 
 
         # Accepts the players input as an action
