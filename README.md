@@ -58,6 +58,33 @@ The text adventure game is a very simple premise. The player inputs available co
 - Boss room prepared message to alert the player that the boss is ahead
 - Potentially adding a combat simulator (such as random damage from the players avatar to the boss, and vice versa, adjusting for current inventory increasing said damage)
 
+## Walkthrough
+
+Below is a step by step guide on how to achieve a Victory in the DnD Text Adventure Game:
+
+1. Move North from the Lost Village.
+2. Move East from the Haunted Mine.
+3. Get the Holy Cross item from the Flooded Mineshaft.
+4. Move West from the Flooded Mineshaft.
+5. Move South from the Haunted Mine.
+6. Move South from the Lost Village.
+7. Move West from the Howling Forest.
+8. Get the Bible item from the Wolf Den.
+9. Move West from the Wolf Den.
+10. Move South from the Howling forest.
+11. Use the Crumbling Shrine iteractable terrain piece in the Clear Spring.
+12. Move North from the Clear Spring.
+13. Move North from the Howling Forest.
+14. Move East from the Lost Village.
+15. Get the Axe item from the Lumber Yard.
+16. Move East from the Lumber Yard.
+17. Get the Crypy Key item from the Forbidden Grotto.
+18. Move North from the Forbidden Grotto.
+19. Get the Wooden Stake item from the Cemetary.
+20. Move South from the Cemetary.
+21. Move South from the Forbidden Grotta.
+22. Fight the Vampire Lord and achive victory.
+
 ## Testing 
 
 - The text adventure game was continuosly tested throughout its development within the gitpod terminal along with being tested once deployed to Heroku.
@@ -76,6 +103,7 @@ The text adventure game is a very simple premise. The player inputs available co
   - A few errors were found and some warnings were noted when passing through the official [(CI Python Linter](https://pep8ci.herokuapp.com/)
     - These erros were "E203 whitespace before ' ", "E501 line too long", "E128 continuation line under-indented for visual indent " and "E722 do not use bare 'except' "
     - These warnings were "W291 trailing whitespace ", "W293 blank line contains whitespace " (when trying to fix these messages by removing blank or trailing whitespace it would incur a different warning of "E231 missing whitespace after ' ")
+    - Almost all errors and warnings have been addressed, the only remaining warning is W291 "trailing whitespace" on lines 108, 110, 114 and 176.
 
 ### Unfixed Bugs
 
