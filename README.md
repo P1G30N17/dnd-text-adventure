@@ -2,7 +2,7 @@
 
 This game is a throw back to the classic style text adventure games of old. The basic premise is that you enter a command and the game will execute that command if possible, such as 'move north', moving the player North, or 'get item', allowing the player to collect an item. The overarching story in the game is that the player is a villager from the lost village, a village that is currently being terrorised by the local Vampire Lord residing in the Whispering Crypt. So it is up to the player to explore the surrounding lands and collect all the necessary items and blessing to prepare themselves to be able to deal with the vampire menace. Failing to adequately prepare themselves will lead to their untimely doom and the eventual destruction of their village. 
 
-![Launch Screen](https://github.com/P1G30N17/dnd-text-adventure/tree/main/media/launch-screen.png?raw=true)
+![Launch Screen](https://github.com/P1G30N17/dnd-text-adventure/blob/main/media/launch-screen.png?raw=true)
 
 ## User Stories
 - I love the old school feel to it.
@@ -21,7 +21,7 @@ The text adventure game is a very simple premise. The player inputs available co
   - The user can give commands to their avatar by typing in the requested command into the terminal.
   - If the command is valid the avatar will attempt to perform said action.
 
-![The Game](https://github.com/P1G30N17/dnd-text-adventure/tree/main/media/the-game.png?raw=true)
+![The Game](https://github.com/P1G30N17/dnd-text-adventure/blob/main/media/the-game.png?raw=true)
 
 - __Giving Commands__
 
@@ -30,27 +30,27 @@ The text adventure game is a very simple premise. The player inputs available co
   - Following an action move with the direction, item, or terrain feature will complete the action.
   - For example, 'get item', 'move north' or 'use terrain feature' will all execute their given task. 
 
-![Using Commands](https://github.com/P1G30N17/dnd-text-adventure/tree/main/media/using-commands.png?raw=true)
+![Using Commands](https://github.com/P1G30N17/dnd-text-adventure/blob/main/media/using-commands.png?raw=true)
 
 - __The user HUD__
 
   - Within the terminal of the game, the user will always be presented with their current location, available interactions and current inventory.
   - These user displays will change depending on which room they are in and how many items they have collected.
 
-![HUD Display](https://github.com/P1G30N17/dnd-text-adventure/tree/main/media/hud.png?raw=true)
+![HUD Display](https://github.com/P1G30N17/dnd-text-adventure/blob/main/media/hud.png?raw=true)
 
 - __Message Bar__ 
 
 - This will display the effects of the users last command
 
-![Player message](https://github.com/P1G30N17/dnd-text-adventure/tree/main/media/player-message.png?raw=true)
+![Player message](https://github.com/P1G30N17/dnd-text-adventure/blob/main/media/player-message.png?raw=true)
 
 - __Victory and Game Over state__
 
 - Whether the player is able to win or not, they will be displayed with a corresponding end message and then be presented with the game over screen.
 - From here the user can choose to either play again or exit the game by follwing the on screen prompts.
 
-![Victory and Game Over state](https://github.com/P1G30N17/dnd-text-adventure/tree/main/media/game-over.png?raw=true)
+![Victory and Game Over state](https://github.com/P1G30N17/dnd-text-adventure/blob/main/media/game-over.png?raw=true)
 
 ### Features Left to Implement
 
